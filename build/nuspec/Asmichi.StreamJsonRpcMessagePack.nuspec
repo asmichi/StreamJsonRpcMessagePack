@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Asmichi.StreamJsonRpcMessagePack</id>
+    <version>$version$</version>
+    <authors>asmichi</authors>
+    <owners>asmichi</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/asmichi/StreamJsonRpcMessagePack</projectUrl>
+    <description>A .NET library that provides a MessagePack for C# based serializeer for StreamJsonRpc.</description>
+    <releaseNotes/>
+    <copyright>Copyright (c) @asmichi (on github)</copyright>
+    <tags>stream json rpc MessagePack</tags>
+    <repository type="git" url="https://github.com/asmichi/StreamJsonRpcMessagePack" commit="$commitHash$"/>
+    <dependencies>
+      <group targetFramework="net461">
+        <dependency id="MessagePack" version="1.7.3.4" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="9.0.1" exclude="Build,Analyzers" />
+        <dependency id="StreamJsonRpc" version="2.0.167" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net472">
+        <dependency id="MessagePack" version="1.7.3.4" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="9.0.1" exclude="Build,Analyzers" />
+        <dependency id="StreamJsonRpc" version=" 2.0.167" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="netstandard2.0">
+        <dependency id="MessagePack" version="1.7.3.4" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="9.0.1" exclude="Build,Analyzers" />
+        <dependency id="StreamJsonRpc" version=" 2.0.167" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="net461\Asmichi.StreamJsonRpcAdapters.MessagePack.dll" target="lib\net461\" />
+    <file src="net461\Asmichi.StreamJsonRpcAdapters.MessagePack.pdb" target="lib\net461\" />
+    <file src="net461\Asmichi.StreamJsonRpcAdapters.MessagePack.xml" target="lib\net461\" />
+    <file src="net472\Asmichi.StreamJsonRpcAdapters.MessagePack.dll" target="lib\net472\" />
+    <file src="net472\Asmichi.StreamJsonRpcAdapters.MessagePack.pdb" target="lib\net472\" />
+    <file src="net472\Asmichi.StreamJsonRpcAdapters.MessagePack.xml" target="lib\net472\" />
+    <file src="netstandard2.0\Asmichi.StreamJsonRpcAdapters.MessagePack.dll" target="lib\netstandard2.0\" />
+    <file src="netstandard2.0\Asmichi.StreamJsonRpcAdapters.MessagePack.pdb" target="lib\netstandard2.0\" />
+    <file src="netstandard2.0\Asmichi.StreamJsonRpcAdapters.MessagePack.xml" target="lib\netstandard2.0\" />
+  </files>
+</package>

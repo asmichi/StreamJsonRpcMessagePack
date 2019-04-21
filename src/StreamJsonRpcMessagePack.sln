@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonRpcMessagePackFormatter", "JsonRpcMessagePackFormatter\JsonRpcMessagePackFormatter.csproj", "{28A1D28B-0E3F-4DA5-9D34-DFAE407E7BB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonRpcMessagePackFormatter.Test", "JsonRpcMessagePackFormatter.Test\JsonRpcMessagePackFormatter.Test.csproj", "{ABB7CFD9-629D-4338-AF92-15A9D97DA751}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AnyCPU = Debug|AnyCPU
+		Release|AnyCPU = Release|AnyCPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28A1D28B-0E3F-4DA5-9D34-DFAE407E7BB5}.Debug|AnyCPU.ActiveCfg = Debug|Any CPU
+		{28A1D28B-0E3F-4DA5-9D34-DFAE407E7BB5}.Debug|AnyCPU.Build.0 = Debug|Any CPU
+		{28A1D28B-0E3F-4DA5-9D34-DFAE407E7BB5}.Release|AnyCPU.ActiveCfg = Release|Any CPU
+		{28A1D28B-0E3F-4DA5-9D34-DFAE407E7BB5}.Release|AnyCPU.Build.0 = Release|Any CPU
+		{ABB7CFD9-629D-4338-AF92-15A9D97DA751}.Debug|AnyCPU.ActiveCfg = Debug|Any CPU
+		{ABB7CFD9-629D-4338-AF92-15A9D97DA751}.Debug|AnyCPU.Build.0 = Debug|Any CPU
+		{ABB7CFD9-629D-4338-AF92-15A9D97DA751}.Release|AnyCPU.ActiveCfg = Release|Any CPU
+		{ABB7CFD9-629D-4338-AF92-15A9D97DA751}.Release|AnyCPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FBCC523-EDD5-42D9-9D0F-F32AE7466F79}
+	EndGlobalSection
+EndGlobal
