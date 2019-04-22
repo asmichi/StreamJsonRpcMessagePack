@@ -55,9 +55,9 @@ namespace Asmichi.StreamJsonRpcAdapters
 
             if (resolver.GetFormatter<JsonRpcMessage>() == null)
             {
-                // NOTE: For maximal performance, dynamically composing `resolver` and StreamJsonRpcResolver.Instance is not an option
+                // NOTE: For maximal performance, dynamically composing `resolver` and JsonRpcMessagePackResolver.Instance is not an option
                 //       because that would disable the FormatterCache<T> technique.
-                throw new ArgumentException("`resolver` must have StreamJsonRpcResolver as its subresolver.", nameof(resolver));
+                throw new ArgumentException("`resolver` must have JsonRpcMessagePackResolver as its subresolver.", nameof(resolver));
             }
 
             switch (serializerKind)
