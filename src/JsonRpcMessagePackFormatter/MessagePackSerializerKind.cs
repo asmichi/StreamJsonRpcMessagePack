@@ -1,6 +1,6 @@
 // Copyright (c) @asmichi (on github). Licensed under the MIT License. See LICENCE in the project root for details.
 
-namespace StreamJsonRpc
+namespace Asmichi.StreamJsonRpcAdapters
 {
     /// <summary>
     /// Represents a kind of serializer supplied by MessagePack for C#.
