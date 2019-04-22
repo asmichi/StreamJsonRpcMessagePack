@@ -12,6 +12,10 @@ namespace Asmichi.StreamJsonRpcAdapters
     {
         public static readonly IMessagePackFormatter<JsonRpcError.ErrorDetail> Instance = new JsonRpcErrorErrorDetailFormatter();
 
+        private JsonRpcErrorErrorDetailFormatter()
+        {
+        }
+
         public int Serialize(ref byte[] bytes, int offset, JsonRpcError.ErrorDetail value, IFormatterResolver formatterResolver)
         {
             if (value == null)

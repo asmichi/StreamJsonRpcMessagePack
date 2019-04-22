@@ -28,6 +28,10 @@ namespace Asmichi.StreamJsonRpcAdapters
             { typeof(JsonRpcError.ErrorDetail), JsonRpcErrorErrorDetailFormatter.Instance },
         };
 
+        private JsonRpcMessagePackResolver()
+        {
+        }
+
         /// <inheritdoc/>
         public IMessagePackFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
 

@@ -13,6 +13,10 @@ namespace Asmichi.StreamJsonRpcAdapters
     {
         public static readonly IMessagePackFormatter<JsonRpcRequest> Instance = new JsonRpcRequestFormatter();
 
+        private JsonRpcRequestFormatter()
+        {
+        }
+
         public int Serialize(ref byte[] bytes, int offset, JsonRpcRequest value, IFormatterResolver formatterResolver)
         {
             if (value == null)

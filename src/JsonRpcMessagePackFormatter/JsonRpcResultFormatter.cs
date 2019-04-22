@@ -1,4 +1,4 @@
-﻿// Copyright (c) @asmichi (on github). Licensed under the MIT License. See LICENCE in the project root for details.
+// Copyright (c) @asmichi (on github). Licensed under the MIT License. See LICENCE in the project root for details.
 
 using System;
 using MessagePack;
@@ -10,6 +10,10 @@ namespace Asmichi.StreamJsonRpcAdapters
     internal sealed class JsonRpcResultFormatter : IMessagePackFormatter<JsonRpcResult>
     {
         public static readonly IMessagePackFormatter<JsonRpcResult> Instance = new JsonRpcResultFormatter();
+
+        private JsonRpcResultFormatter()
+        {
+        }
 
         // [Version, Id, Result]
         public int Serialize(ref byte[] bytes, int offset, JsonRpcResult value, IFormatterResolver formatterResolver)
