@@ -3,8 +3,13 @@
 using System;
 using System.Buffers;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using MessagePack;
 using Nerdbank.Streams;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using StreamJsonRpc;
 using StreamJsonRpc.Protocol;
 
@@ -15,6 +20,8 @@ namespace Asmichi.StreamJsonRpcAdapters
     /// </summary>
     public sealed class JsonRpcMessagePackFormatter : IJsonRpcMessageFormatter
     {
+        private static readonly JsonSerializer DefaultJsonSerializer = JsonSerializer.CreateDefault();
+
         private readonly IFormatterResolver _resolver;
         private readonly MessagePackSerializerKind _serializerKind;
         private readonly bool _allowParameterObject;
@@ -121,9 +128,9 @@ namespace Asmichi.StreamJsonRpcAdapters
                 //       is not a concern of serializers, but the concern of the StreamJsonRpc interface,
                 //       introduced by the `InvokeWithParameterObjectAsync` contract.
                 //
-                //       Json.NET happens to implement this matching algorithm since during serialization
-                //       every object is converted into a map (a JSON object) and loses its type information
-                //       and thus JToken.ToObject converts this map from JToken to the actual type on demand.
+                //       By using Json.NET, we happen to implement this matching algorithm. During serialization
+                //       every object is converted into a JSON object. Thus we can easily obtain
+                //       serialized property names using JObject.Properties.
                 //
                 // Shallowly convert the parameter object to a Dictionary<string, object> before serialization.
                 return new JsonRpcRequest()
@@ -145,7 +152,33 @@ namespace Asmichi.StreamJsonRpcAdapters
         // Converts the parameter object to a valid JSON-RPC parameter structure: null, an Array or an Object.
         private IReadOnlyDictionary<string, object> ToParameterStructure(object parameterObject)
         {
-            throw new NotImplementedException();
+            Debug.Assert(!IsValidParameterStructure(parameterObject));
+
+            // NOTE: This implementation is a preliminary implementation and subject to change.
+            //       Specifically, it will not be respecting Json.NET attributes.
+            var jcontract = DefaultJsonSerializer.ContractResolver.ResolveContract(parameterObject.GetType()) as JsonObjectContract;
+            if (jcontract == null)
+            {
+                throw new ArgumentException(
+                    string.Format(CultureInfo.CurrentCulture, "Parameter object of type {0} does not represent a JSON object.", parameterObject.GetType().FullName),
+                    nameof(parameterObject));
+            }
+
+            var dic = new Dictionary<string, object>(jcontract.Properties.Count);
+            for (int i = 0; i < jcontract.Properties.Count; i++)
+            {
+                var property = jcontract.Properties[i];
+
+                // NOTE: This does not respect conditional property serialization.
+                if (property.Ignored || !property.Readable)
+                {
+                    continue;
+                }
+
+                dic[property.PropertyName] = property.ValueProvider.GetValue(parameterObject);
+            }
+
+            return dic;
         }
     }
 }
