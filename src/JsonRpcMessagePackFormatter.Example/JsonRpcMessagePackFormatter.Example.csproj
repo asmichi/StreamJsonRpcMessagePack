@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>JsonRpcMessagePackFormatter.Example</AssemblyName>
+    <CodeAnalysisRuleSet>..\PrivateAssembly.ruleset</CodeAnalysisRuleSet>
+    <RootNamespace>JsonRpcMessagePackFormatterExample</RootNamespace>
+    <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MessagePack" Version="1.7.3.4" />
+    <PackageReference Include="Nerdbank.Streams" Version="2.1.37" />
+    <PackageReference Include="StreamJsonRpc" Version="2.0.167" />
+    <PackageReference Include="Roslynator.Analyzers" Version="2.0.0" PrivateAssets="all" IncludeAssets="runtime;build;native;contentfiles;analyzers" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta009" PrivateAssets="all" IncludeAssets="runtime;build;native;contentfiles;analyzers" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JsonRpcMessagePackFormatter\JsonRpcMessagePackFormatter.csproj" />
+  </ItemGroup>
+
+</Project>

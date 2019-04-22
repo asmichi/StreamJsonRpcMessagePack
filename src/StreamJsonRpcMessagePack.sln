@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonRpcMessagePackFormatter
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonRpcMessagePackFormatter.Test", "JsonRpcMessagePackFormatter.Test\JsonRpcMessagePackFormatter.Test.csproj", "{ABB7CFD9-629D-4338-AF92-15A9D97DA751}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonRpcMessagePackFormatter.Example", "JsonRpcMessagePackFormatter.Example\JsonRpcMessagePackFormatter.Example.csproj", "{432BAA1E-73FA-4B55-BCD2-B4CB08FD359A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AnyCPU = Debug|AnyCPU
@@ -21,6 +23,10 @@ Global
 		{ABB7CFD9-629D-4338-AF92-15A9D97DA751}.Debug|AnyCPU.Build.0 = Debug|Any CPU
 		{ABB7CFD9-629D-4338-AF92-15A9D97DA751}.Release|AnyCPU.ActiveCfg = Release|Any CPU
 		{ABB7CFD9-629D-4338-AF92-15A9D97DA751}.Release|AnyCPU.Build.0 = Release|Any CPU
+		{432BAA1E-73FA-4B55-BCD2-B4CB08FD359A}.Debug|AnyCPU.ActiveCfg = Debug|Any CPU
+		{432BAA1E-73FA-4B55-BCD2-B4CB08FD359A}.Debug|AnyCPU.Build.0 = Debug|Any CPU
+		{432BAA1E-73FA-4B55-BCD2-B4CB08FD359A}.Release|AnyCPU.ActiveCfg = Release|Any CPU
+		{432BAA1E-73FA-4B55-BCD2-B4CB08FD359A}.Release|AnyCPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
