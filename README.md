@@ -2,6 +2,10 @@
 
 A .NET library that provides a MessagePack for C# based serializeer for StreamJsonRpc.
 
+This library can be obtained via [NuGet](https://www.nuget.org/packages/Asmichi.StreamJsonRpcMessagePack/).
+
+[![Build Status](https://dev.azure.com/asmichi/StreamJsonRpcMessagePack/_apis/build/status/StreamJsonRpcMessagePack-CI?branchName=master)](https://dev.azure.com/asmichi/StreamJsonRpcMessagePack/_build/latest?definitionId=3&branchName=master)
+
 # Usage
 
 - Add `JsonRpcMessagePackResolver.Instance` to your custom `IFormatterResolver`.
