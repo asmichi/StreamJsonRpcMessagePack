@@ -8,7 +8,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/asmichi/StreamJsonRpcMessagePack</projectUrl>
-    <description>A .NET library that provides a MessagePack for C# based serializeer for StreamJsonRpc.</description>
+    <description>A .NET library that provides a MessagePack for C# based serializer for StreamJsonRpc.</description>
     <releaseNotes/>
     <copyright>Copyright (c) @asmichi (on github)</copyright>
     <tags>stream json rpc MessagePack</tags>
