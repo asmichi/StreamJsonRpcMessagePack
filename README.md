@@ -1,6 +1,6 @@
 # Asmichi.StreamJsonRpcMessagePack
 
-A .NET library that provides a MessagePack for C# based serializer for StreamJsonRpc.
+A .NET library that provides a [MessagePack for C#](https://github.com/neuecc/MessagePack-CSharp)-based serializer for [StreamJsonRpc](https://github.com/Microsoft/vs-streamjsonrpc).
 
 This library can be obtained via [NuGet](https://www.nuget.org/packages/Asmichi.StreamJsonRpcMessagePack/).
 
