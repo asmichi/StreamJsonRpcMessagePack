@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/asmichi/StreamJsonRpcMessagePack</projectUrl>
     <description>A .NET library that provides a MessagePack for C# based serializer for StreamJsonRpc.</description>
     <releaseNotes/>
-    <copyright>Copyright (c) @asmichi (on github)</copyright>
+    <copyright>Copyright (c) @asmichi (https://github.com/asmichi)</copyright>
     <tags>stream json rpc MessagePack</tags>
     <repository type="git" url="https://github.com/asmichi/StreamJsonRpcMessagePack" commit="$commitHash$"/>
     <dependencies>

@@ -25,7 +25,7 @@
       "allowConsecutiveUsings": true
     },
     "documentationRules": {
-      "copyrightText": "Copyright (c) @asmichi (on github). Licensed under the MIT License. See LICENCE in the project root for details.",
+      "copyrightText": "Copyright (c) @asmichi (https://github.com/asmichi). Licensed under the MIT License. See LICENCE in the project root for details.",
       "xmlHeader": false,
       "documentExposedElements": true,
       "documentInterfaces": false,
