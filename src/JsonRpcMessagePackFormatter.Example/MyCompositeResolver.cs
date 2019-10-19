@@ -20,9 +20,9 @@ namespace JsonRpcMessagePackFormatterExample
             StandardResolver.Instance,
         };
 
-        public IMessagePackFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
+        public IMessagePackFormatter<T>? GetFormatter<T>() => FormatterCache<T>.Formatter;
 
-        private static IMessagePackFormatter<T> FormatterCacheImpl<T>()
+        private static IMessagePackFormatter<T>? FormatterCacheImpl<T>()
         {
             foreach (var item in Resolvers)
             {
@@ -38,7 +38,7 @@ namespace JsonRpcMessagePackFormatterExample
 
         private static class FormatterCache<T>
         {
-            public static readonly IMessagePackFormatter<T> Formatter = MyCompositeResolver.FormatterCacheImpl<T>();
+            public static readonly IMessagePackFormatter<T>? Formatter = MyCompositeResolver.FormatterCacheImpl<T>();
         }
     }
 }

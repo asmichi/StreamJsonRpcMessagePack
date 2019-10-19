@@ -16,9 +16,9 @@ namespace Asmichi.StreamJsonRpcAdapters
             StandardResolverAllowPrivate.Instance,  // allow internal types for tests
         };
 
-        public IMessagePackFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
+        public IMessagePackFormatter<T>? GetFormatter<T>() => FormatterCache<T>.Formatter;
 
-        private static IMessagePackFormatter<T> FormatterCacheImpl<T>()
+        private static IMessagePackFormatter<T>? FormatterCacheImpl<T>()
         {
             foreach (var item in Resolvers)
             {
@@ -34,7 +34,7 @@ namespace Asmichi.StreamJsonRpcAdapters
 
         private static class FormatterCache<T>
         {
-            public static readonly IMessagePackFormatter<T> Formatter = DefaultResolverForTests.FormatterCacheImpl<T>();
+            public static readonly IMessagePackFormatter<T>? Formatter = DefaultResolverForTests.FormatterCacheImpl<T>();
         }
     }
 }

@@ -8,15 +8,15 @@ using StreamJsonRpc.Protocol;
 namespace Asmichi.StreamJsonRpcAdapters
 {
     // Serializes the value as: [MessageKind, value]
-    internal sealed class JsonRpcMessageFormatter : IMessagePackFormatter<JsonRpcMessage>
+    internal sealed class JsonRpcMessageFormatter : IMessagePackFormatter<JsonRpcMessage?>
     {
-        public static readonly IMessagePackFormatter<JsonRpcMessage> Instance = new JsonRpcMessageFormatter();
+        public static readonly IMessagePackFormatter<JsonRpcMessage?> Instance = new JsonRpcMessageFormatter();
 
         private JsonRpcMessageFormatter()
         {
         }
 
-        public int Serialize(ref byte[] bytes, int offset, JsonRpcMessage value, IFormatterResolver formatterResolver)
+        public int Serialize(ref byte[] bytes, int offset, JsonRpcMessage? value, IFormatterResolver formatterResolver)
         {
             if (value == null)
             {
@@ -53,7 +53,7 @@ namespace Asmichi.StreamJsonRpcAdapters
             return offset - startOffset;
         }
 
-        public JsonRpcMessage Deserialize(byte[] bytes, int offset, IFormatterResolver formatterResolver, out int readSize)
+        public JsonRpcMessage? Deserialize(byte[] bytes, int offset, IFormatterResolver formatterResolver, out int readSize)
         {
             if (MessagePackBinary.IsNil(bytes, offset))
             {
@@ -74,7 +74,7 @@ namespace Asmichi.StreamJsonRpcAdapters
             var kind = (MessageKind)MessagePackBinary.ReadInt32(bytes, offset, out singleReadSize);
             offset += singleReadSize;
 
-            JsonRpcMessage value;
+            JsonRpcMessage? value;
             switch (kind)
             {
                 case MessageKind.Request:

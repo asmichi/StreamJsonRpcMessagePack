@@ -33,9 +33,9 @@ namespace Asmichi.StreamJsonRpcAdapters
         }
 
         /// <inheritdoc/>
-        public IMessagePackFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
+        public IMessagePackFormatter<T>? GetFormatter<T>() => FormatterCache<T>.Formatter;
 
-        private static object FormatterCacheImpl(Type t)
+        private static object? FormatterCacheImpl(Type t)
         {
             if (FormatterMap.TryGetValue(t, out var formatter))
             {
@@ -47,7 +47,7 @@ namespace Asmichi.StreamJsonRpcAdapters
 
         private static class FormatterCache<T>
         {
-            public static readonly IMessagePackFormatter<T> Formatter = (IMessagePackFormatter<T>)FormatterCacheImpl(typeof(T));
+            public static readonly IMessagePackFormatter<T>? Formatter = (IMessagePackFormatter<T>?)FormatterCacheImpl(typeof(T));
         }
     }
 }

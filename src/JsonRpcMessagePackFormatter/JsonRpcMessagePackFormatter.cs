@@ -8,7 +8,6 @@ using System.Globalization;
 using MessagePack;
 using Nerdbank.Streams;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using StreamJsonRpc;
 using StreamJsonRpc.Protocol;
@@ -45,7 +44,7 @@ namespace Asmichi.StreamJsonRpcAdapters
         }
 
         private JsonRpcMessagePackFormatter(
-            IFormatterResolver resolver,
+            IFormatterResolver? resolver,
             MessagePackSerializerKind serializerKind,
             bool allowParameterObject)
         {

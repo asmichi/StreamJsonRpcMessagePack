@@ -12,18 +12,26 @@ namespace Asmichi.StreamJsonRpcAdapters
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="JsonRpcMessagePackFormatterOptions"/> class.
-        /// If <paramref name="resolver"/> is omitted, <see cref="Resolver"/> must be initialized later.
+        /// <see cref="Resolver"/> must be initialized later.
+        /// </summary>
+        public JsonRpcMessagePackFormatterOptions()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JsonRpcMessagePackFormatterOptions"/> class.
         /// </summary>
         /// <param name="resolver">An <see cref="IFormatterResolver"/> instance that will be used for (de)serialization.</param>
-        public JsonRpcMessagePackFormatterOptions(IFormatterResolver resolver = null)
+        public JsonRpcMessagePackFormatterOptions(IFormatterResolver resolver)
         {
+            // NOTE: Do not throw ArgumentNullException. Consumers prior to 0.2.0 may pass null to `resolver` because `resolver` had the default value of null before 0.2.0.
             Resolver = resolver;
         }
 
         /// <summary>
         /// Specifies the <see cref="IFormatterResolver"/> instance that will be used for (de)serialization.
         /// </summary>
-        public IFormatterResolver Resolver { get; set; }
+        public IFormatterResolver? Resolver { get; set; }
 
         /// <summary>
         /// Specifies which serializer should be used.

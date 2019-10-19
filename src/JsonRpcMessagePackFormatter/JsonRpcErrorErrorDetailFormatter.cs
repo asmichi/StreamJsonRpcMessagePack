@@ -8,15 +8,15 @@ using StreamJsonRpc.Protocol;
 namespace Asmichi.StreamJsonRpcAdapters
 {
     // Serializes the value as: Serializes the value as [Code, Message, Data].
-    internal sealed class JsonRpcErrorErrorDetailFormatter : IMessagePackFormatter<JsonRpcError.ErrorDetail>
+    internal sealed class JsonRpcErrorErrorDetailFormatter : IMessagePackFormatter<JsonRpcError.ErrorDetail?>
     {
-        public static readonly IMessagePackFormatter<JsonRpcError.ErrorDetail> Instance = new JsonRpcErrorErrorDetailFormatter();
+        public static readonly IMessagePackFormatter<JsonRpcError.ErrorDetail?> Instance = new JsonRpcErrorErrorDetailFormatter();
 
         private JsonRpcErrorErrorDetailFormatter()
         {
         }
 
-        public int Serialize(ref byte[] bytes, int offset, JsonRpcError.ErrorDetail value, IFormatterResolver formatterResolver)
+        public int Serialize(ref byte[] bytes, int offset, JsonRpcError.ErrorDetail? value, IFormatterResolver formatterResolver)
         {
             if (value == null)
             {
@@ -33,7 +33,7 @@ namespace Asmichi.StreamJsonRpcAdapters
             return offset - startOffset;
         }
 
-        public JsonRpcError.ErrorDetail Deserialize(byte[] bytes, int offset, IFormatterResolver formatterResolver, out int readSize)
+        public JsonRpcError.ErrorDetail? Deserialize(byte[] bytes, int offset, IFormatterResolver formatterResolver, out int readSize)
         {
             if (MessagePackBinary.IsNil(bytes, offset))
             {

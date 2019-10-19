@@ -7,16 +7,16 @@ using StreamJsonRpc.Protocol;
 
 namespace Asmichi.StreamJsonRpcAdapters
 {
-    internal sealed class JsonRpcResultFormatter : IMessagePackFormatter<JsonRpcResult>
+    internal sealed class JsonRpcResultFormatter : IMessagePackFormatter<JsonRpcResult?>
     {
-        public static readonly IMessagePackFormatter<JsonRpcResult> Instance = new JsonRpcResultFormatter();
+        public static readonly IMessagePackFormatter<JsonRpcResult?> Instance = new JsonRpcResultFormatter();
 
         private JsonRpcResultFormatter()
         {
         }
 
         // [Version, Id, Result]
-        public int Serialize(ref byte[] bytes, int offset, JsonRpcResult value, IFormatterResolver formatterResolver)
+        public int Serialize(ref byte[] bytes, int offset, JsonRpcResult? value, IFormatterResolver formatterResolver)
         {
             if (value == null)
             {
@@ -33,7 +33,7 @@ namespace Asmichi.StreamJsonRpcAdapters
             return offset - startOffset;
         }
 
-        public JsonRpcResult Deserialize(byte[] bytes, int offset, IFormatterResolver formatterResolver, out int readSize)
+        public JsonRpcResult? Deserialize(byte[] bytes, int offset, IFormatterResolver formatterResolver, out int readSize)
         {
             if (MessagePackBinary.IsNil(bytes, offset))
             {
